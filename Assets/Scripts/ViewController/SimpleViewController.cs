@@ -28,7 +28,7 @@ public static class SimpleViewController
     private static int depth = 0;
 
     [RuntimeInitializeOnLoadMethod]
-    static void Initialize()
+    static void Main()
     {
         GameObject eventSystem = new GameObject("Event System", typeof(EventSystem), typeof(StandaloneInputModule));
 
