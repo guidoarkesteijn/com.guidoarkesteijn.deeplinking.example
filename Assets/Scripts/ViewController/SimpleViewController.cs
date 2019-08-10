@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guido.Arkesteijn.DeepLink.Runtime;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,9 @@ public static class SimpleViewController
     [RuntimeInitializeOnLoadMethod]
     static void Main()
     {
-        GameObject eventSystem = new GameObject("Event System", typeof(EventSystem), typeof(StandaloneInputModule));
+        DeepLink.Initialize();
+
+        new GameObject("Event System", typeof(EventSystem), typeof(StandaloneInputModule));
 
         GameObject cameraObject = new GameObject("Background Camera");
         cameraObject.AddComponent<SimpleViewControllerInput>();
@@ -115,6 +118,10 @@ public static class SimpleViewController
             depth--;
 
             screens.Remove(data);
+        }
+        else
+        {
+            Application.Quit();
         }
     }
 

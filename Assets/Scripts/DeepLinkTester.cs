@@ -4,12 +4,6 @@ using System.Collections.Generic;
 
 public class DeepLinkTester : MonoBehaviour
 {
-    protected void Awake()
-    {
-        //First `Initialize` to the DeepLinking behavior.
-        DeepLink.Initialize();
-    }
-
     [DeepLink(uri = "Company")]
     public void OnCompanyReceived(Dictionary<string,object> payload)
     {
