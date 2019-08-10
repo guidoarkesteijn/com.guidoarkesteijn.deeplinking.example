@@ -7,7 +7,7 @@ public class DeepLinkTester : MonoBehaviour
     protected void Awake()
     {
         //First `Initialize` to the DeepLinking behavior.
-        DeepLinking.Initialize();
+        DeepLink.Initialize();
     }
 
     [DeepLink(uri = "Company")]
