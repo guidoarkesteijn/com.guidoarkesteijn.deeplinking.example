@@ -11,11 +11,13 @@ public class ArgumentsView : MonoBehaviour
     {
         string argumentsFullText = "";
 
-        if (DeepLink.Arguments != null)
+        argumentsFullText += DeepLink.Instance.ArgumentString + "\n";
+
+        if (DeepLink.Instance.Payload != null)
         {
-            foreach (var item in DeepLink.Arguments)
+            foreach (var item in DeepLink.Instance.Payload)
             {
-                argumentsFullText += $"{item}\n";
+                argumentsFullText += $"{item.Key}: {item.Value}\n";
             }
         }
 

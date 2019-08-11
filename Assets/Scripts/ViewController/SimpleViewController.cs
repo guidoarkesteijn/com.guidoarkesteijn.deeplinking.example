@@ -31,7 +31,7 @@ public static class SimpleViewController
     [RuntimeInitializeOnLoadMethod]
     static void Main()
     {
-        DeepLink.Initialize();
+        DeepLink.Initialize(Resources.Load<DeepLinkSettings>(nameof(DeepLinkSettings)) as DeepLinkSettings);
 
         new GameObject("Event System", typeof(EventSystem), typeof(StandaloneInputModule));
 
@@ -45,6 +45,8 @@ public static class SimpleViewController
 
         ViewControllerSettingsData data = viewControllerSettings.GetStartPointData();
         LoadView(data);
+
+        DeepLink.Instance.CallMethods();
     }
 
     public static void LoadView(ViewControllerSettingsData data)
@@ -65,6 +67,11 @@ public static class SimpleViewController
         LoadCompany(null);
     }
 
+    public static void LoadCompany(int identifier)
+    {
+        LoadCompany(MockData.GetCompany(identifier));
+    }
+
     public static void LoadCompany(Dictionary<string, object> payload)
     {
         ViewControllerSettingsData data = viewControllerSettings.GetDataForID("COMPANY");
@@ -74,6 +81,11 @@ public static class SimpleViewController
     public static void LoadProduct()
     {
         LoadProduct(null);
+    }
+
+    public static void LoadProduct(int id)
+    {
+        LoadProduct(MockData.GetProduct(id));
     }
 
     public static void LoadProduct(Dictionary<string,object> payload)

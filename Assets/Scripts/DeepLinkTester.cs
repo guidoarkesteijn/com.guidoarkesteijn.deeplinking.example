@@ -2,23 +2,17 @@
 using Guido.Arkesteijn.DeepLink.Runtime;
 using System.Collections.Generic;
 
-public class DeepLinkTester : MonoBehaviour
+public class DeepLinkTester
 {
-    [DeepLink(uri = "Company")]
-    public void OnCompanyReceived(Dictionary<string,object> payload)
+    [DeepLink(uri = "company")]
+    public static void OnCompanyReceived(int identifier)
     {
-        SimpleViewController.LoadCompany(payload);
+        SimpleViewController.LoadCompany(identifier);
     }
 
-    [DeepLink(uri = "Product")]
-    public void OnProductReceived(Dictionary<string, object> payload)
+    [DeepLink(uri = "product")]
+    public static void OnProductReceived(int identifier)
     {
-        SimpleViewController.LoadProduct(payload);
-    }
-
-    [DeepLink(uri = "Message")]
-    public void OnMessageReceived(Dictionary<string, object> payload)
-    {
-
+        SimpleViewController.LoadProduct(identifier);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -64,5 +65,43 @@ public static class MockData
         { "NAME", "Cool Company Name 5" },
         { "REVIEW", 5 }
     };
+
+    internal static Dictionary<string, object> GetProduct(int id)
+    {
+        switch (id)
+        {
+            case 1:
+                return PRODUCT_1;
+            case 2:
+                return PRODUCT_2;
+            case 3:
+                return PRODUCT_3;
+            case 4:
+                return PRODUCT_4;
+            case 5:
+                return PRODUCT_5;
+        }
+
+        return null;
+    }
+
+    internal static Dictionary<string, object> GetCompany(int id)
+    {
+        switch (id)
+        {
+            case 1:
+                return COMPANY_1;
+            case 2:
+                return COMPANY_2;
+            case 3:
+                return COMPANY_3;
+            case 4:
+                return COMPANY_4;
+            case 5:
+                return COMPANY_5;
+        }
+
+        return null;
+    }
 }
 
